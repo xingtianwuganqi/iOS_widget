@@ -44,9 +44,42 @@ struct DailyWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text(entry.date, style: .time)
-            Text("天天轻松学")
+        HStack(alignment: .center, spacing: 15) {
+            Image("icon_img")
+                .resizable()
+                .frame(width: 120, height: 120, alignment: .center)
+                .cornerRadius(20)
+
+            VStack(alignment: .leading, spacing: 10) {
+                Text("国画 - 山水画技法")
+                    .font(.body)
+                    .padding(EdgeInsets(top: 6, leading: 0, bottom: 26, trailing: 6))
+                HStack(alignment: .center, spacing: 10) {
+                    Text("12.27 11:19")
+                        .font(.footnote)
+                        .foregroundColor(Color.gray)
+                    
+                    // 图片 和 文字 button
+                        Button(action: {
+                            print("")
+                        }) {
+                            // 默认是横向布局(HStack)
+                            // 图片和文字都默认渲染成 foregroundColor, foregroundColor 默认为蓝色
+                            // 图片会撑开 button
+                            HStack{
+                                Image(systemName: "play.rectangle")
+                                Text("看直播")
+                            }
+                        }
+                        .font(.footnote)
+                        .padding(6)
+                        .background(Color.orange)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(14)
+                }
+                .padding(EdgeInsets(top: 16, leading: 0, bottom: 6, trailing: 6))
+            }
+            
         }
         
     }
